@@ -1,34 +1,45 @@
 package com.PeluCanina.PeluqueriaCaniana.services.imp;
 
 import com.PeluCanina.PeluqueriaCaniana.entities.Owner;
+import com.PeluCanina.PeluqueriaCaniana.repositories.IOwner;
 import com.PeluCanina.PeluqueriaCaniana.services.IOwnerService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 public class OwnerServiceImp implements IOwnerService {
 
+    @Autowired
+    IOwner ownerRepository;
+
     @Override
     public List<Owner> getOwner() {
-        return List.of();
+        return ownerRepository.findAll();
     }
 
     @Override
     public Owner getOwnerById(Long id) {
-        return ;
+        return ownerRepository.findById(id).orElse(null) ;
     }
 
     @Override
     public Owner postOwner(Owner owner) {
-        return null;
+        return ownerRepository.save(owner);
     }
 
     @Override
     public Owner putOwner(Owner owner) {
-        return null;
+        if(!ownerRepository.existsById(owner.getId())){
+            return null;
+        }
+        return ownerRepository.save(owner);
     }
 
     @Override
     public void deleteOwner(Long id) {
-
+        if (!ownerRepository.existsById(id)) {
+            return;
+        }
+        ownerRepository.deleteById(id);
     }
 }
