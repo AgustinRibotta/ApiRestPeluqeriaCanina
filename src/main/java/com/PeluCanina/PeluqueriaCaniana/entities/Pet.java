@@ -29,8 +29,11 @@ public class Pet {
     private String observations;
 
     @ManyToOne
-    @JoinColumn(name = "owner_id")
+    @JoinColumn(name = "owner_id", nullable = false)
     private Owner oneOwner;
+
+    @Version
+    private Long version;
 
     public Pet() {
     }

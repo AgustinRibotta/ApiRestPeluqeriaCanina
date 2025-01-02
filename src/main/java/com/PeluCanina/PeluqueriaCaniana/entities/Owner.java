@@ -22,6 +22,9 @@ public class Owner {
     @OneToMany(mappedBy = "oneOwner")
     private List<Pet> pets;
 
+    @Version
+    private Long version;
+
     public Owner() {
     }
 
