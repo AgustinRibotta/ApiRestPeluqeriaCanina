@@ -20,7 +20,7 @@ public class Owner {
     private  String telOwner;
 
     @OneToMany(mappedBy = "oneOwner")
-    private List<Pet> pets;D
+    private List<Pet> pets;
 
     public Owner() {
     }
