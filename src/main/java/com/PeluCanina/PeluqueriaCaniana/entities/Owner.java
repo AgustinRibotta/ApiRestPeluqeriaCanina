@@ -10,7 +10,7 @@ import java.util.List;
 public class Owner {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
 
     @Column(name = "name", nullable = false)
@@ -20,7 +20,7 @@ public class Owner {
     private  String telOwner;
 
     @OneToMany(mappedBy = "oneOwner")
-    private List<Pet> pets;
+    private List<Pet> pets;D
 
     public Owner() {
     }
