@@ -10,4 +10,5 @@ public interface IOwnerService {
     Owner postOwner(Owner owner);
     Owner putOwner(Owner owner);
     void  deleteOwner (Long id);
+    boolean existsByTelOwner(String telOwner);
 }

@@ -16,7 +16,7 @@ public class Owner {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "tel_owner")
+    @Column(name = "tel_owner", unique = true)
     private  String telOwner;
 
     @OneToMany(mappedBy = "oneOwner")

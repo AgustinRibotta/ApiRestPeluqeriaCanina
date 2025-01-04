@@ -44,4 +44,10 @@ public class OwnerServiceImp implements IOwnerService {
         }
         ownerRepository.deleteById(id);
     }
+
+    @Override
+    public boolean existsByTelOwner(String telOwner) {
+
+        return ownerRepository.findByTelOwner(telOwner) != null;
+    }
 }
