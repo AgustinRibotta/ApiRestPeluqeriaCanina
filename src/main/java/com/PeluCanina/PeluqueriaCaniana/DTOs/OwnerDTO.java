@@ -11,6 +11,7 @@ public class OwnerDTO {
     private List<String> petNames;
 
     public OwnerDTO() {
+
     }
 
     public OwnerDTO(Long id, String name, String telOwner, List<String> petNames) {
@@ -51,4 +52,6 @@ public class OwnerDTO {
     public void setPetNames(List<String> petNames) {
         this.petNames = petNames;
     }
+
+
 }

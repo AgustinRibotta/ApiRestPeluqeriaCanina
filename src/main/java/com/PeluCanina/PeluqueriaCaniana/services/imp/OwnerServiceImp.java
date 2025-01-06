@@ -50,4 +50,5 @@ public class OwnerServiceImp implements IOwnerService {
 
         return ownerRepository.findByTelOwner(telOwner) != null;
     }
+
 }

@@ -1,44 +1,19 @@
-package com.PeluCanina.PeluqueriaCaniana.entities;
+package com.PeluCanina.PeluqueriaCaniana.DTOs;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "pet")
-public class Pet {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
-
-    @Column(name = "name", nullable = false)
+public class PetDTO {
+    private Long id;
     private String name;
-
-    @Column(name = "race")
     private String race;
-
-    @Column(name = "color")
     private String color;
-
-    @Column(name = "alergic_to", nullable = false)
     private String alergicTo;
-
-    @Column(name = "special_attention")
     private String specialAttention;
-
-    @Column(name = "observations")
     private String observations;
+    private OwnerDTO owner;
 
-    @ManyToOne
-    @JoinColumn(name = "owner_id", nullable = false)
-    private Owner oneOwner;
-
-    @Version
-    private Long version;
-
-    public Pet() {
+    public PetDTO() {
     }
 
-    public Pet(Long id, String name, String race, String color, String alergicTo, String specialAttention, String observations, Owner oneOwner) {
+    public PetDTO(Long id, String name, String race, String color, String alergicTo, String specialAttention, String observations, OwnerDTO owner) {
         this.id = id;
         this.name = name;
         this.race = race;
@@ -46,7 +21,7 @@ public class Pet {
         this.alergicTo = alergicTo;
         this.specialAttention = specialAttention;
         this.observations = observations;
-        this.oneOwner = oneOwner;
+        this.owner = owner;
     }
 
     public Long getId() {
@@ -105,13 +80,11 @@ public class Pet {
         this.observations = observations;
     }
 
-    public Owner getOneOwner() {
-        return oneOwner;
+    public OwnerDTO getOwner() {
+        return owner;
     }
 
-    public void setOneOwner(Owner oneOwner) {
-        this.oneOwner = oneOwner;
+    public void setOwner(OwnerDTO owner) {
+        this.owner = owner;
     }
-
 }
-
